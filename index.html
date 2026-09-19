@@ -1,66 +1,408 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ceker & Bakso Ayam Mercon Pedas Nampol</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MERCON FOOD RAHMA HAYATI - Ceker , Bakso Ayam & Sayap Mercon</title>
+<style>
+:root{
+  --orange:#ff2600;
+  --orange2:#ff5918;
+  --cream:#fff8ef;
+  --bg:#f6f7fb;
+  --text:#292929;
+  --muted:#777;
+  --white:#fff;
+  --shadow:0 10px 28px rgba(0,0,0,.10);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text)}
+button,input{font:inherit}
+button{cursor:pointer;border:0}
+.container{max-width:1200px;margin:auto;padding:0 18px}
+
+/* HEADER */
+header{
+  position:sticky;top:0;z-index:50;
+  background:linear-gradient(135deg,#f46a00,#ff8a00);
+  color:white;box-shadow:0 4px 20px rgba(0,0,0,.14)
+}
+.nav{height:72px;display:flex;align-items:center;gap:18px}
+.logo{font-size:25px;font-weight:900;white-space:nowrap}
+.logo span{color:#ffe4b7}
+.search{
+  flex:1;display:flex;align-items:center;background:white;
+  border-radius:30px;padding:0 18px;height:46px;color:#aaa
+}
+.search input{border:0;outline:0;width:100%;font-size:16px;padding-left:10px}
+.cart-btn{
+  background:#fff;color:var(--orange);border-radius:25px;
+  padding:12px 17px;font-weight:800;white-space:nowrap
+}
+.cart-count{background:var(--orange);color:#fff;border-radius:50%;padding:2px 7px;margin-left:4px}
+
+/* HERO */
+.hero{margin-top:18px;border-radius:25px;overflow:hidden;
+  background:linear-gradient(120deg,#ff6900,#ff9c18);color:#fff;
+  min-height:250px;display:flex;align-items:center;position:relative}
+.hero-content{padding:38px;max-width:650px;z-index:2}
+.hero h1{font-size:clamp(34px,5vw,62px);line-height:1;font-weight:900;margin-bottom:14px}
+.hero p{font-size:18px;line-height:1.5;margin-bottom:22px}
+.hero .cta{background:#fff;color:#ef6100;padding:14px 22px;border-radius:30px;font-weight:900}
+.hero-art{position:absolute;right:35px;font-size:130px;opacity:.28}
+
+/* CATEGORY */
+.section{padding:28px 0}
+.section-title{display:flex;align-items:end;justify-content:space-between;margin-bottom:18px}
+.section-title h2{font-size:22px}
+.section-title p{font-size:13px;color:var(--muted)}
+.categories{display:flex;gap:24px;overflow-x:auto;padding:6px 4px 14px;scrollbar-width:none}
+.categories::-webkit-scrollbar{display:none}
+.cat{min-width:82px;text-align:center;cursor:pointer}
+.cat-img{
+  width:72px;height:72px;margin:auto;border-radius:50%;
+  background:linear-gradient(145deg,#fff,#eee);box-shadow:var(--shadow);
+  display:flex;align-items:center;justify-content:center;font-size:35px;
+  border:3px solid transparent;transition:.2s
+}
+.cat.active .cat-img{border-color:var(--orange);transform:translateY(-3px)}
+.cat-name{font-size:13px;font-weight:700;margin-top:9px;white-space:nowrap}
+
+/* PRODUCTS */
+.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{
+  background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 5px 18px rgba(0,0,0,.07);
+  position:relative;transition:.2s
+}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.product-image{
+  height:190px;background:#eee center/cover no-repeat;position:relative;
+}
+.badge{
+  position:absolute;left:10px;top:10px;background:#f4511e;color:#fff;
+  padding:7px 10px;border-radius:20px;font-size:11px;font-weight:900
+}
+.card-body{padding:14px}
+.card h3{font-size:17px;margin-bottom:6px}
+.card p{font-size:13px;color:var(--muted);height:36px}
+.price-row{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
+.price{font-size:18px;font-weight:900;color:var(--orange)}
+.add{
+  width:42px;height:42px;border-radius:50%;background:var(--orange2);
+  color:white;font-size:25px;box-shadow:0 4px 10px rgba(255,130,0,.3)
+}
+
+/* PROMO */
+.promo{
+  margin-top:25px;background:#fff0df;border-radius:22px;padding:24px;
+  display:flex;justify-content:space-between;align-items:center;gap:20px
+}
+.promo strong{font-size:22px;color:var(--orange)}
+.promo button{background:var(--orange);color:white;padding:12px 20px;border-radius:25px;font-weight:800}
+
+/* CART */
+.cart-panel{
+  position:fixed;right:-430px;top:0;width:min(420px,100%);height:100vh;
+  background:#fff;z-index:100;box-shadow:-10px 0 30px rgba(0,0,0,.2);
+  transition:.3s;display:flex;flex-direction:column
+}
+.cart-panel.open{right:0}
+.cart-head{padding:20px;background:var(--orange);color:#fff;display:flex;justify-content:space-between;align-items:center}
+.close{background:rgba(255,255,255,.2);color:#fff;border-radius:50%;width:36px;height:36px}
+.cart-items{flex:1;overflow:auto;padding:18px}
+.cart-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #eee}
+.cart-item .emoji{width:55px;height:55px;border-radius:12px;background:#fff0df;display:grid;place-items:center;font-size:28px}
+.cart-item h4{font-size:14px}
+.qty{display:flex;align-items:center;gap:8px;margin-top:7px}
+.qty button{width:25px;height:25px;border-radius:50%;background:#eee}
+.cart-foot{padding:18px;border-top:1px solid #eee}
+.total{display:flex;justify-content:space-between;font-size:20px;font-weight:900;margin-bottom:14px}
+.checkout{width:100%;padding:15px;border-radius:14px;background:#25d366;color:#fff;font-weight:900;font-size:16px}
+
+/* INFO */
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.info{background:#fff;padding:20px;border-radius:18px;box-shadow:0 4px 15px rgba(0,0,0,.06)}
+.info b{display:block;margin-bottom:6px}.info p{color:var(--muted);font-size:14px;line-height:1.5}
+
+/* FLOATING WA */
+.wa{position:fixed;right:20px;bottom:20px;width:58px;height:58px;border-radius:50%;
+background:#25d366;color:#fff;display:grid;place-items:center;font-size:28px;z-index:40;
+box-shadow:0 8px 20px rgba(0,0,0,.2);text-decoration:none}
+
+/* MOBILE */
+@media(max-width:900px){
+  .product-grid{grid-template-columns:repeat(3,1fr)}
+  .hero-art{right:-20px}
+}
+@media(max-width:650px){
+  .nav{height:auto;padding:12px 0;flex-wrap:wrap}
+  .logo{width:100%}.search{order:3;flex-basis:100%}
+  .hero{min-height:300px}.hero-content{padding:28px}.hero-art{font-size:100px;right:10px;bottom:10px}
+  .product-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .product-image{height:155px}.card h3{font-size:15px}.price{font-size:16px}
+  .promo{display:block}.promo button{margin-top:14px}
+  .info-grid{grid-template-columns:1fr}
+}
+</style>
 </head>
+
 <body>
-    <!-- Header / Navbar -->
-    <header>
-        <div class="logo">🔥 Mercon Legend</div>
-        <nav>
-            <a href="#menu">Menu</a>
-            <a href="#tentang">Tentang Kami</a>
-            <a href="#kontak" class="btn-kontak">Kontak</a>
-        </nav>
-    </header>
+<header>
+  <div class="container nav">
+    <div class="logo">🔥 MERCON<span> FOOD</span></div>
+    <div class="search">
+      🔎 <input id="search" type="search" placeholder="Cari menu...">
+    </div>
+    <button class="cart-btn" onclick="openCart()">🛒 Keranjang <span id="cartCount" class="cart-count">0</span></button>
+  </div>
+</header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Ceker & Bakso Ayam Mercon</h1>
-            <p>Sensasi pedas nagih yang bikin lidah bergoyang! Dibuat dari rempah pilihan dan cabai segar asli.</p>
-            <a href="#menu" class="btn-pesan">Pesan Sekarang</a>
+<main class="container">
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>CEKER & BAKSO<br>AYAM MERCON 🌶️</h1>
+      <p>Pedas, gurih, bikin nagih! Pesan sekarang dan nikmati menu mercon favoritmu.</p>
+      <button class="cta" onclick="scrollToMenu()">Lihat Menu →</button>
+    </div>
+    <div class="hero-art">🍗🌶️</div>
+  </section>
+
+  <section class="section" id="menu">
+    <div class="section-title">
+      <div>
+        <h2>Kategori Menu</h2>
+        <p>Pilih menu sesuai selera</p>
+      </div>
+    </div>
+    <div class="categories">
+      <div class="cat active" onclick="filterCategory('all',this)">
+        <div class="cat-img">🍽️</div><div class="cat-name">Semua</div>
+      </div>
+      <div class="cat" onclick="filterCategory('ceker',this)">
+        <div class="cat-img">🍗</div><div class="cat-name">Ceker</div>
+      </div>
+      <div class="cat" onclick="filterCategory('bakso',this)">
+        <div class="cat-img">🍡</div><div class="cat-name">Bakso</div>
+      </div>
+      <div class="cat" onclick="filterCategory('paket',this)">
+        <div class="cat-img">🍱</div><div class="cat-name">Paket</div>
+      </div>
+      <div class="cat" onclick="filterCategory('minuman',this)">
+        <div class="cat-img">🥤</div><div class="cat-name">Minuman</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">
+      <div>
+        <h2>🔥 Must Try</h2>
+        <p>Menu favorit pelanggan</p>
+      </div>
+      <p id="resultCount">6 MENU</p>
+    </div>
+
+    <div id="products" class="product-grid"></div>
+  </section>
+
+  <section class="promo">
+    <div>
+      <strong>🔥 PROMO HARI INI</strong>
+      <p>Beli Paket Mercon hemat untuk makan bareng teman!</p>
+    </div>
+    <button onclick="filterCategory('paket', document.querySelector('.cat:nth-child(4)'))">Lihat Paket</button>
+  </section>
+
+  <section class="section">
+    <div class="section-title">
+      <div><h2>Kenapa Pesan di Sini?</h2></div>
+    </div>
+    <div class="info-grid">
+      <div class="info"><b>🌶️ Bisa Pilih Level</b><p>Atur tingkat kepedasan sesuai selera.</p></div>
+      <div class="info"><b>⚡ Fresh & Siap Makan</b><p>Pesanan diproses setelah masuk agar tetap nikmat.</p></div>
+      <div class="info"><b>📲 Pesan via WhatsApp</b><p>Checkout mudah dan langsung terhubung ke penjual.</p></div>
+    </div>
+  </section>
+
+</main>
+
+<a class="wa" id="waFloat" href="#" target="_blank">💬</a>
+
+<aside id="cartPanel" class="cart-panel">
+  <div class="cart-head">
+    <h2>🛒 Keranjang</h2>
+    <button class="close" onclick="closeCart()">✕</button>
+  </div>
+  <div id="cartItems" class="cart-items"></div>
+  <div class="cart-foot">
+    <div class="total"><span>Total</span><span id="total">Rp0</span></div>
+    <button class="checkout" onclick="checkoutWA()">Pesan via WhatsApp</button>
+  </div>
+</aside>
+
+<script>
+/* GANTI DENGAN NOMOR WHATSAPP TOKO ANDA
+   Contoh: 6281248012002
+*/
+const NOMOR_WA = "6281248012002";
+
+const products = [
+  {
+    id:1, cat:"ceker", name:"Ceker Mercon Original", price:15000, emoji:"🍗",
+    desc:"Ceker empuk dengan sambal mercon pedas gurih.",
+    image:"https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id:2, cat:"ceker", name:"Ceker Mercon Super Pedas", price:18000, emoji:"🌶️",
+    desc:"Level pedas lebih nampol untuk pencinta mercon.",
+    image:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id:3, cat:"bakso", name:"Bakso Ayam Mercon", price:15000, emoji:"🍡",
+    desc:"Bakso ayam lembut dengan isian sambal mercon.",
+    image:"https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id:4, cat:"bakso", name:"Bakso Ayam Mercon Jumbo", price:20000, emoji:"🍡",
+    desc:"Porsi jumbo, cocok untuk makan sampai puas.",
+    image:"https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id:5, cat:"paket", name:"Paket Ceker + Bakso", price:28000, emoji:"🍱",
+    desc:"Kombinasi favorit untuk kamu yang mau dua-duanya.",
+    image:"https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id:6, cat:"paket", name:"Paket Mercon Komplit", price:35000, emoji:"🔥",
+    desc:"Ceker + bakso + nasi. Hemat dan bikin kenyang.",
+    image:"https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id:7, cat:"minuman", name:"Es Teh Manis", price:5000, emoji:"🧋",
+    desc:"Minuman segar untuk teman menu pedas.",
+    image:"https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id:8, cat:"minuman", name:"Es Jeruk", price:7000, emoji:"🍊",
+    desc:"Segar dan cocok setelah makan mercon.",
+    image:"https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?auto=format&fit=crop&w=700&q=80"
+  }
+];
+
+let cart = [];
+let currentCategory = "all";
+
+function rupiah(n){
+  return new Intl.NumberFormat("id-ID",{style:"currency",currency:"IDR",maximumFractionDigits:0}).format(n);
+}
+
+function renderProducts(){
+  const keyword = document.getElementById("search").value.toLowerCase().trim();
+  const list = products.filter(p =>
+    (currentCategory==="all" || p.cat===currentCategory) &&
+    (p.name.toLowerCase().includes(keyword) || p.desc.toLowerCase().includes(keyword))
+  );
+
+  document.getElementById("resultCount").textContent = list.length + " MENU";
+
+  document.getElementById("products").innerHTML = list.map(p => `
+    <article class="card">
+      <div class="product-image" style="background-image:url('${p.image}')">
+        <div class="badge">🔥 MUST TRY</div>
+      </div>
+      <div class="card-body">
+        <h3>${p.name}</h3>
+        <p>${p.desc}</p>
+        <div class="price-row">
+          <span class="price">${rupiah(p.price)}</span>
+          <button class="add" onclick="addToCart(${p.id})">+</button>
         </div>
-    </section>
+      </div>
+    </article>
+  `).join("");
 
-    <!-- Menu Section -->
-    <section id="menu" class="menu-section">
-        <h2>Menu Favorit Kami</h2>
-        <div class="menu-grid">
-            <div class="menu-card">
-                <div class="menu-img">🌶️</div>
-                <h3>Ceker Mercon Kuah Pedas</h3>
-                <p>Ceker empuk meresap bumbu pedas gurih dengan level kepedasan sesuai selera.</p>
-                <span class="harga">Rp 15.000 / porsi</span>
-                <button class="btn-beli" onclick="pesanWhatsApp('Ceker Mercon Kuah Pedas')">Pesan via WhatsApp</button>
-            </div>
-            <div class="menu-card">
-                <div class="menu-img">🔥</div>
-                <h3>Bakso Ayam Mercon</h3>
-                <p>Bakso ayam kenyal isi sambal mercon meledak di dalam mulut.</p>
-                <span class="harga">Rp 18.000 / porsi</span>
-                <button class="btn-beli" onclick="pesanWhatsApp('Bakso Ayam Mercon')">Pesan via WhatsApp</button>
-            </div>
-            <div class="menu-card">
-                <div class="menu-img">⚡</div>
-                <h3>Paket Combo Mercon</h3>
-                <p>Campuran spesial Ceker dan Bakso Ayam Mercon plus tahu pedas.</p>
-                <span class="harga">Rp 30.000 / porsi</span>
-                <button class="btn-beli" onclick="pesanWhatsApp('Paket Combo Mercon')">Pesan via WhatsApp</button>
-            </div>
+  if(!list.length){
+    document.getElementById("products").innerHTML =
+      '<p style="grid-column:1/-1;text-align:center;padding:35px;color:#777">Menu tidak ditemukan.</p>';
+  }
+}
+
+function filterCategory(cat, el){
+  currentCategory = cat;
+  document.querySelectorAll(".cat").forEach(x=>x.classList.remove("active"));
+  if(el) el.classList.add("active");
+  renderProducts();
+  document.getElementById("menu").scrollIntoView({behavior:"smooth"});
+}
+
+function addToCart(id){
+  const product = products.find(p=>p.id===id);
+  const found = cart.find(x=>x.id===id);
+  if(found) found.qty++;
+  else cart.push({...product,qty:1});
+  renderCart();
+  openCart();
+}
+
+function changeQty(id, amount){
+  const item = cart.find(x=>x.id===id);
+  if(!item) return;
+  item.qty += amount;
+  if(item.qty <= 0) cart = cart.filter(x=>x.id!==id);
+  renderCart();
+}
+
+function renderCart(){
+  const totalQty = cart.reduce((a,b)=>a+b.qty,0);
+  document.getElementById("cartCount").textContent = totalQty;
+
+  if(!cart.length){
+    document.getElementById("cartItems").innerHTML =
+      '<div style="text-align:center;padding:60px 10px;color:#777">🛒<br><br>Keranjang masih kosong.</div>';
+    document.getElementById("total").textContent = "Rp0";
+    return;
+  }
+
+  document.getElementById("cartItems").innerHTML = cart.map(item=>`
+    <div class="cart-item">
+      <div class="emoji">${item.emoji}</div>
+      <div style="flex:1">
+        <h4>${item.name}</h4>
+        <div style="color:#ff6b00;font-weight:800">${rupiah(item.price)}</div>
+        <div class="qty">
+          <button onclick="changeQty(${item.id},-1)">−</button>
+          <b>${item.qty}</b>
+          <button onclick="changeQty(${item.id},1)">+</button>
         </div>
-    </section>
+      </div>
+    </div>
+  `).join("");
 
-    <!-- Footer -->
-    <footer id="kontak">
-        <p>&copy; 2026 Ceker & Bakso Ayam Mercon. All Rights Reserved.</p>
-        <p>Hubungi kami: 0812-3456-7890</p>
-    </footer>
+  const total = cart.reduce((sum,item)=>sum + item.price*item.qty,0);
+  document.getElementById("total").textContent = rupiah(total);
+}
 
-    <script src="script.js"></script>
+function openCart(){document.getElementById("cartPanel").classList.add("open")}
+function closeCart(){document.getElementById("cartPanel").classList.remove("open")}
+function scrollToMenu(){document.getElementById("menu").scrollIntoView({behavior:"smooth"})}
+
+function checkoutWA(){
+  if(!cart.length){alert("Keranjang masih kosong.");return;}
+  let text = "Halo MERCON FOOD, saya mau pesan:%0A%0A";
+  cart.forEach(item=>{
+    text += `• ${item.name} x${item.qty} = ${rupiah(item.price*item.qty)}%0A`;
+  });
+  const total = cart.reduce((sum,item)=>sum + item.price*item.qty,0);
+  text += `%0ATotal: ${rupiah(total)}%0A%0ANama:%0AAlamat:%0ACatatan:`;
+  window.open(`https://wa.me/${NOMOR_WA}?text=${text}`,"_blank");
+}
+
+document.getElementById("search").addEventListener("input",renderProducts);
+document.getElementById("waFloat").href = `https://wa.me/${NOMOR_WA}?text=Halo%20MERCON%20FOOD,%20saya%20mau%20pesan.`;
+
+renderProducts();
+renderCart();
+</script>
 </body>
 </html>
