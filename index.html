@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MERCON FOOD RAHMA HAYATI - Ceker , Bakso Ayam & Sayap Mercon</title>
+<title>MERCON FOOD RAHMA HAYATI - Ceker, Bakso Ayam & Sayap Mercon</title>
 <style>
 :root{
   --orange:#ff2600;
@@ -24,31 +24,31 @@ button{cursor:pointer;border:0}
 /* HEADER */
 header{
   position:sticky;top:0;z-index:50;
-  background:linear-gradient(135deg,#f46a00,#ff8a00);
+  background:linear-gradient(135deg,#b30000,#ff1a1a);
   color:white;box-shadow:0 4px 20px rgba(0,0,0,.14)
 }
-.nav{height:72px;display:flex;align-items:center;gap:18px}
-.logo{font-size:25px;font-weight:900;white-space:nowrap}
-.logo span{color:#ffe4b7}
+.nav{height:78px;display:flex;align-items:center;gap:18px}
+.logo{font-size:22px;font-weight:900;white-space:nowrap;line-height:1.2}
+.logo span{color:#ffeb3b;text-shadow:0 2px 4px rgba(0,0,0,0.3)}
 .search{
   flex:1;display:flex;align-items:center;background:white;
   border-radius:30px;padding:0 18px;height:46px;color:#aaa
 }
 .search input{border:0;outline:0;width:100%;font-size:16px;padding-left:10px}
 .cart-btn{
-  background:#fff;color:var(--orange);border-radius:25px;
+  background:#fff;color:#cc0000;border-radius:25px;
   padding:12px 17px;font-weight:800;white-space:nowrap
 }
-.cart-count{background:var(--orange);color:#fff;border-radius:50%;padding:2px 7px;margin-left:4px}
+.cart-count{background:#cc0000;color:#fff;border-radius:50%;padding:2px 7px;margin-left:4px}
 
 /* HERO */
 .hero{margin-top:18px;border-radius:25px;overflow:hidden;
-  background:linear-gradient(120deg,#ff6900,#ff9c18);color:#fff;
+  background:linear-gradient(120deg,#990000,#ff3300);color:#fff;
   min-height:250px;display:flex;align-items:center;position:relative}
 .hero-content{padding:38px;max-width:650px;z-index:2}
-.hero h1{font-size:clamp(34px,5vw,62px);line-height:1;font-weight:900;margin-bottom:14px}
+.hero h1{font-size:clamp(30px,4.5vw,55px);line-height:1.1;font-weight:900;margin-bottom:14px}
 .hero p{font-size:18px;line-height:1.5;margin-bottom:22px}
-.hero .cta{background:#fff;color:#ef6100;padding:14px 22px;border-radius:30px;font-weight:900}
+.hero .cta{background:#fff;color:#b30000;padding:14px 22px;border-radius:30px;font-weight:900}
 .hero-art{position:absolute;right:35px;font-size:130px;opacity:.28}
 
 /* CATEGORY */
@@ -65,7 +65,7 @@ header{
   display:flex;align-items:center;justify-content:center;font-size:35px;
   border:3px solid transparent;transition:.2s
 }
-.cat.active .cat-img{border-color:var(--orange);transform:translateY(-3px)}
+.cat.active .cat-img{border-color:#cc0000;transform:translateY(-3px)}
 .cat-name{font-size:13px;font-weight:700;margin-top:9px;white-space:nowrap}
 
 /* PRODUCTS */
@@ -79,26 +79,26 @@ header{
   height:190px;background:#eee center/cover no-repeat;position:relative;
 }
 .badge{
-  position:absolute;left:10px;top:10px;background:#f4511e;color:#fff;
+  position:absolute;left:10px;top:10px;background:#cc0000;color:#fff;
   padding:7px 10px;border-radius:20px;font-size:11px;font-weight:900
 }
 .card-body{padding:14px}
 .card h3{font-size:17px;margin-bottom:6px}
 .card p{font-size:13px;color:var(--muted);height:36px}
 .price-row{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
-.price{font-size:18px;font-weight:900;color:var(--orange)}
+.price{font-size:17px;font-weight:900;color:#cc0000}
 .add{
-  width:42px;height:42px;border-radius:50%;background:var(--orange2);
-  color:white;font-size:25px;box-shadow:0 4px 10px rgba(255,130,0,.3)
+  width:42px;height:42px;border-radius:50%;background:#cc0000;
+  color:white;font-size:25px;box-shadow:0 4px 10px rgba(204,0,0,.3)
 }
 
 /* PROMO */
 .promo{
-  margin-top:25px;background:#fff0df;border-radius:22px;padding:24px;
+  margin-top:25px;background:#ffe6e6;border-radius:22px;padding:24px;
   display:flex;justify-content:space-between;align-items:center;gap:20px
 }
-.promo strong{font-size:22px;color:var(--orange)}
-.promo button{background:var(--orange);color:white;padding:12px 20px;border-radius:25px;font-weight:800}
+.promo strong{font-size:22px;color:#cc0000}
+.promo button{background:#cc0000;color:white;padding:12px 20px;border-radius:25px;font-weight:800}
 
 /* CART */
 .cart-panel{
@@ -107,11 +107,11 @@ header{
   transition:.3s;display:flex;flex-direction:column
 }
 .cart-panel.open{right:0}
-.cart-head{padding:20px;background:var(--orange);color:#fff;display:flex;justify-content:space-between;align-items:center}
+.cart-head{padding:20px;background:#cc0000;color:#fff;display:flex;justify-content:space-between;align-items:center}
 .close{background:rgba(255,255,255,.2);color:#fff;border-radius:50%;width:36px;height:36px}
 .cart-items{flex:1;overflow:auto;padding:18px}
 .cart-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #eee}
-.cart-item .emoji{width:55px;height:55px;border-radius:12px;background:#fff0df;display:grid;place-items:center;font-size:28px}
+.cart-item .emoji{width:55px;height:55px;border-radius:12px;background:#ffe6e6;display:grid;place-items:center;font-size:28px}
 .cart-item h4{font-size:14px}
 .qty{display:flex;align-items:center;gap:8px;margin-top:7px}
 .qty button{width:25px;height:25px;border-radius:50%;background:#eee}
@@ -149,9 +149,9 @@ box-shadow:0 8px 20px rgba(0,0,0,.2);text-decoration:none}
 <body>
 <header>
   <div class="container nav">
-    <div class="logo">🔥 MERCON<span> FOOD</span></div>
+    <div class="logo">🔥 MERCON FOOD<br><span>RAHMA HAYATI</span></div>
     <div class="search">
-      🔎 <input id="search" type="search" placeholder="Cari menu...">
+      🔎 <input id="search" type="search" placeholder="Cari menu pedas...">
     </div>
     <button class="cart-btn" onclick="openCart()">🛒 Keranjang <span id="cartCount" class="cart-count">0</span></button>
   </div>
@@ -161,18 +161,18 @@ box-shadow:0 8px 20px rgba(0,0,0,.2);text-decoration:none}
 
   <section class="hero">
     <div class="hero-content">
-      <h1>CEKER & BAKSO<br>AYAM MERCON 🌶️</h1>
-      <p>Pedas, gurih, bikin nagih! Pesan sekarang dan nikmati menu mercon favoritmu.</p>
+      <h1>MERCON FOOD<br>RAHMA HAYATI 🌶️</h1>
+      <p>Spesialis Ceker & Bakso Ayam Mercon. Super pedas, gurih, dan nikmat!</p>
       <button class="cta" onclick="scrollToMenu()">Lihat Menu →</button>
     </div>
-    <div class="hero-art">🍗🌶️</div>
+    <div class="hero-art">🔥</div>
   </section>
 
   <section class="section" id="menu">
     <div class="section-title">
       <div>
         <h2>Kategori Menu</h2>
-        <p>Pilih menu sesuai selera</p>
+        <p>Pilih menu favoritmu</p>
       </div>
     </div>
     <div class="categories">
@@ -197,10 +197,10 @@ box-shadow:0 8px 20px rgba(0,0,0,.2);text-decoration:none}
   <section>
     <div class="section-title">
       <div>
-        <h2>🔥 Must Try</h2>
-        <p>Menu favorit pelanggan</p>
+        <h2>🔥 Daftar Menu</h2>
+        <p>Pilihan menu mercon & minuman segar</p>
       </div>
-      <p id="resultCount">6 MENU</p>
+      <p id="resultCount">8 MENU</p>
     </div>
 
     <div id="products" class="product-grid"></div>
@@ -208,8 +208,8 @@ box-shadow:0 8px 20px rgba(0,0,0,.2);text-decoration:none}
 
   <section class="promo">
     <div>
-      <strong>🔥 PROMO HARI INI</strong>
-      <p>Beli Paket Mercon hemat untuk makan bareng teman!</p>
+      <strong>🔥 PROMO SPESIAL</strong>
+      <p>Nikmati sensasi pedas nampol Paket Mercon Komplit bersama keluarga!</p>
     </div>
     <button onclick="filterCategory('paket', document.querySelector('.cat:nth-child(4)'))">Lihat Paket</button>
   </section>
@@ -219,9 +219,9 @@ box-shadow:0 8px 20px rgba(0,0,0,.2);text-decoration:none}
       <div><h2>Kenapa Pesan di Sini?</h2></div>
     </div>
     <div class="info-grid">
-      <div class="info"><b>🌶️ Bisa Pilih Level</b><p>Atur tingkat kepedasan sesuai selera.</p></div>
-      <div class="info"><b>⚡ Fresh & Siap Makan</b><p>Pesanan diproses setelah masuk agar tetap nikmat.</p></div>
-      <div class="info"><b>📲 Pesan via WhatsApp</b><p>Checkout mudah dan langsung terhubung ke penjual.</p></div>
+      <div class="info"><b>🌶️ Pedas Mantap</b><p>Diracik dari cabai segar pilihan berkualitas.</p></div>
+      <div class="info"><b>⚡ Fresh Setiap Hari</b><p>Dimasak dadakan agar kualitas dan rasa tetap terjaga.</p></div>
+      <div class="info"><b>📲 Pesan via WhatsApp</b><p>Praktis, cepat, dan langsung terhubung ke penjual.</p></div>
     </div>
   </section>
 
@@ -242,50 +242,48 @@ box-shadow:0 8px 20px rgba(0,0,0,.2);text-decoration:none}
 </aside>
 
 <script>
-/* GANTI DENGAN NOMOR WHATSAPP TOKO ANDA
-   Contoh: 6281248012002
-*/
+// NOMOR WHATSAPP TOKO
 const NOMOR_WA = "6281248012002";
 
 const products = [
   {
-    id:1, cat:"ceker", name:"Ceker Mercon Original", price:15000, emoji:"🍗",
-    desc:"Ceker empuk dengan sambal mercon pedas gurih.",
+    id:1, cat:"ceker", name:"Ceker Mercon Original", price:10000, emoji:"🍗",
+    desc:"Ceker empuk dengan bumbu sambal mercon original yang gurih.",
     image:"https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=80"
   },
   {
-    id:2, cat:"ceker", name:"Ceker Mercon Super Pedas", price:18000, emoji:"🌶️",
-    desc:"Level pedas lebih nampol untuk pencinta mercon.",
+    id:2, cat:"ceker", name:"Ceker Mercon Super Pedas", price:12000, emoji:"🌶️",
+    desc:"Level pedas ekstra nampol khusus pencinta pedas sejati.",
     image:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=700&q=80"
   },
   {
-    id:3, cat:"bakso", name:"Bakso Ayam Mercon", price:15000, emoji:"🍡",
-    desc:"Bakso ayam lembut dengan isian sambal mercon.",
+    id:3, cat:"bakso", name:"Bakso Ayam Mercon", price:10000, emoji:"🍡",
+    desc:"Bakso ayam kenyal berbalut sambal mercon pedas nikmat.",
     image:"https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=80"
   },
   {
-    id:4, cat:"bakso", name:"Bakso Ayam Mercon Jumbo", price:20000, emoji:"🍡",
-    desc:"Porsi jumbo, cocok untuk makan sampai puas.",
+    id:4, cat:"bakso", name:"Bakso Ayam Mercon Jumbo", price:15000, emoji:"🔥",
+    desc:"Ukuran lebih besar dan puas dengan sambal mercon melimpah.",
     image:"https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=700&q=80"
   },
   {
-    id:5, cat:"paket", name:"Paket Ceker + Bakso", price:28000, emoji:"🍱",
-    desc:"Kombinasi favorit untuk kamu yang mau dua-duanya.",
+    id:5, cat:"paket", name:"Paket Ceker + Bakso", price:15000, emoji:"🍱",
+    desc:"Kombinasi pas ceker dan bakso ayam pedas dalam satu porsi.",
     image:"https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=700&q=80"
   },
   {
-    id:6, cat:"paket", name:"Paket Mercon Komplit", price:35000, emoji:"🔥",
-    desc:"Ceker + bakso + nasi. Hemat dan bikin kenyang.",
+    id:6, cat:"paket", name:"Paket Ceker Mercon Komplit", price:20000, emoji:"⭐",
+    desc:"Porsi lengkap paling puas dengan sensasi pedas menggoyang lidah.",
     image:"https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=700&q=80"
   },
   {
     id:7, cat:"minuman", name:"Es Teh Manis", price:5000, emoji:"🧋",
-    desc:"Minuman segar untuk teman menu pedas.",
+    desc:"Es teh manis segar penawar pedas setelah makan mercon.",
     image:"https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=700&q=80"
   },
   {
     id:8, cat:"minuman", name:"Es Jeruk", price:7000, emoji:"🍊",
-    desc:"Segar dan cocok setelah makan mercon.",
+    desc:"Es jeruk manis segar alami perasan jeruk asli.",
     image:"https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?auto=format&fit=crop&w=700&q=80"
   }
 ];
@@ -309,7 +307,7 @@ function renderProducts(){
   document.getElementById("products").innerHTML = list.map(p => `
     <article class="card">
       <div class="product-image" style="background-image:url('${p.image}')">
-        <div class="badge">🔥 MUST TRY</div>
+        <div class="badge">🌶️ FAVORIT</div>
       </div>
       <div class="card-body">
         <h3>${p.name}</h3>
@@ -369,7 +367,7 @@ function renderCart(){
       <div class="emoji">${item.emoji}</div>
       <div style="flex:1">
         <h4>${item.name}</h4>
-        <div style="color:#ff6b00;font-weight:800">${rupiah(item.price)}</div>
+        <div style="color:#cc0000;font-weight:800">${rupiah(item.price)}</div>
         <div class="qty">
           <button onclick="changeQty(${item.id},-1)">−</button>
           <b>${item.qty}</b>
@@ -389,7 +387,7 @@ function scrollToMenu(){document.getElementById("menu").scrollIntoView({behavior
 
 function checkoutWA(){
   if(!cart.length){alert("Keranjang masih kosong.");return;}
-  let text = "Halo MERCON FOOD, saya mau pesan:%0A%0A";
+  let text = "Halo MERCON FOOD RAHMA HAYATI, saya mau pesan:%0A%0A";
   cart.forEach(item=>{
     text += `• ${item.name} x${item.qty} = ${rupiah(item.price*item.qty)}%0A`;
   });
@@ -399,7 +397,7 @@ function checkoutWA(){
 }
 
 document.getElementById("search").addEventListener("input",renderProducts);
-document.getElementById("waFloat").href = `https://wa.me/${NOMOR_WA}?text=Halo%20MERCON%20FOOD,%20saya%20mau%20pesan.`;
+document.getElementById("waFloat").href = `https://wa.me/${NOMOR_WA}?text=Halo%20MERCON%20FOOD%20RAHMA%20HAYATI,%20saya%20mau%20pesan.`;
 
 renderProducts();
 renderCart();
